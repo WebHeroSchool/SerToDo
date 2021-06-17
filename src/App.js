@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { count, lenght } from './number';
+
 const val = 'переменная';
 const logic = true;
 const tern = false;
@@ -12,6 +14,7 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </div>
+        <h3>Общая длина: {count * lenght}</h3>
         <p style={{color: 'red'}}>Добавление тега style</p>
         <p>Вывод значение переменной: {val}</p>
         <p>Вывод числа: {34}</p>
