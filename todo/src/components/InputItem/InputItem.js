@@ -7,7 +7,7 @@ import styles from './Input.module.css';
 
 class InputItem extends Component {
   state = {
-    value: null,
+    value: null
   };
 
   buttonHandler = () => {
@@ -28,8 +28,10 @@ class InputItem extends Component {
         />
         <button
           className={classnames({
-            [styles.addButton]: this.state.value !== null && this.state.value !== '',
-            [styles.disabledButton]: this.state.value === null || this.state.value === '',
+            [styles.addButton]:
+              this.state.value !== null && this.state.value !== '',
+            [styles.disabledButton]:
+              this.state.value === null || this.state.value === ''
           })}
           onClick={this.buttonHandler}
           disabled={this.state.value === null || this.state.value === ''}
