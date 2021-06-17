@@ -3,12 +3,12 @@ import classnames from 'classnames';
 import Clear from '@material-ui/icons/HighlightOff';
 import styles from './Item.module.css';
 
-const Item = ({task, setTaskIsDone}) => (
+const Item = ({task, setTaskIsDone, removeTask}) => (
   <div className={styles.itemWrap}>
     <input
-        type='checkbox'
-        checked={task.isDone}
-        onClick={() => setTaskIsDone(task)}
+      type='checkbox'
+      checked={task.isDone}
+      onChange={() => setTaskIsDone(task)}
     />
     <div className={
       classnames({
@@ -18,7 +18,7 @@ const Item = ({task, setTaskIsDone}) => (
     }>
       <p className={styles.itemText}>{task.value}</p>
     </div>
-    <Clear className={styles.btn} />
+    <Clear className={styles.btn} onClick={() => removeTask(task.id)} />
   </div>
 );
 
