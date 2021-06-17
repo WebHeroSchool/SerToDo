@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Item from '../Item/Items'
+
 import styles from './ItemList.module.css'
 
 const ItemList = ({ itemList, setTaskIsDone, removeTask }) => (
@@ -7,7 +9,7 @@ const ItemList = ({ itemList, setTaskIsDone, removeTask }) => (
     {itemList.map(item => (
       <Item
         task={item}
-        key={item.value}
+        key={item.id}
         setTaskIsDone={setTaskIsDone}
         removeTask={removeTask}
       />
