@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 
 import InputItem from '../InputItem/InputItem';
 import ItemList from '../ItemList/ItemList';
@@ -8,24 +8,8 @@ import styles from './App.module.css';
 
 class App extends Component {
   state = {
-    itemList: [
-      {
-        value: 'Поесть',
-        isDone: true,
-        id: 1
-      },
-      {
-        value: 'Покодить',
-        isDone: true,
-        id: 2
-      },
-      {
-        value: 'Поспать',
-        isDone: false,
-        id: 3
-      }
-    ],
-    count: 3
+    itemList: [],
+    count: 0
   };
 
   setTaskIsDone = task => {
@@ -36,13 +20,13 @@ class App extends Component {
       return item;
     });
 
-    this.setState( { itemList: newItemList } )
+    this.setState({itemList: newItemList});
   };
 
   removeTask = id => {
     const newTaskList = this.state.itemList.filter(item => item.id !== id);
 
-    this.setState( { itemList: newTaskList } );
+    this.setState({itemList: newTaskList, count: this.state.count - 1});
   };
 
   addTask = value => {
@@ -62,13 +46,13 @@ class App extends Component {
     return (
       <div className={styles.wrap}>
         <h1 className={styles.title}>Список задач</h1>
-        <InputItem addTask={this.addTask} />
+        <InputItem addTask={this.addTask}/>
         <ItemList
           itemList={this.state.itemList}
           setTaskIsDone={this.setTaskIsDone}
           removeTask={this.removeTask}
         />
-        <Footer count={this.state.count} />
+        <Footer count={this.state.count}/>
       </div>
     );
   }
